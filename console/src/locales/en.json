@@ -2288,6 +2288,7 @@
     },
     "sessionPanel": {
       "searchConversations": "Search conversations…",
+      "noResults": "No results",
       "noConversations": "No conversations yet",
       "loadingConversations": "Loading…"
     },

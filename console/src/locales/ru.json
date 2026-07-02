@@ -1952,6 +1952,7 @@
     },
     "sessionPanel": {
       "searchConversations": "Поиск…",
+      "noResults": "Результатов нет",
       "noConversations": "Нет диалогов",
       "loadingConversations": "Загрузка…"
     },
