@@ -1086,6 +1086,10 @@ export default function ChatPage() {
   const codingModeRef = useRef(codingMode);
   codingModeRef.current = codingMode;
   const loopSelectedSkill = useLoopStore((s) => s.selectedSkill);
+  // Reactive subscriptions so the options useMemo recomputes after the
+  // /commands/available API response populates the stores.
+  const loopAvailableSkills = useLoopStore((s) => s.availableSkills);
+  const loopSystemCommands = useLoopStore((s) => s.systemCommands);
 
   // Wide mode toggle: expand chat content to full available width
   const [isWideMode, setIsWideMode] = useState(() => {
@@ -2402,6 +2406,61 @@ export default function ChatPage() {
         description: t("chat.commands.compact.description"),
       },
       {
+        command: "/new",
+        value: "new",
+        description: t("chat.commands.new.description"),
+      },
+      {
+        command: "/history",
+        value: "history",
+        description: t("chat.commands.history.description"),
+      },
+      {
+        command: "/plan",
+        value: "plan",
+        description: t("chat.commands.plan.description"),
+      },
+      {
+        command: "/dream",
+        value: "dream",
+        description: t("chat.commands.dream.description"),
+      },
+      {
+        command: "/memorize",
+        value: "memorize",
+        description: t("chat.commands.memorize.description"),
+      },
+      {
+        command: "/message",
+        value: "message",
+        description: t("chat.commands.message.description"),
+      },
+      {
+        command: "/system_prompt",
+        value: "system_prompt",
+        description: t("chat.commands.system_prompt.description"),
+      },
+      {
+        command: "/restart",
+        value: "restart",
+        description: t("chat.commands.restart.description"),
+      },
+      {
+        command: "/status",
+        value: "status",
+        description: t("chat.commands.status.description"),
+      },
+      {
+        command: "/version",
+        value: "version",
+        description: t("chat.commands.version.description"),
+      },
+      {
+        command: "/logs",
+        value: "logs",
+        description: t("chat.commands.logs.description"),
+      },
+      {
         command: "/mission",
         value: "__loop__mission",
         description: t("chat.commands.mission.description"),
@@ -2421,10 +2480,25 @@ export default function ChatPage() {
       commandSuggestions.map((item) => item.value.trim()),
     );
     const loopSkillNames = new Set(
-      useLoopStore.getState().availableSkills.map((s) => s.name),
+      loopAvailableSkills.map((s) => s.name),
     );
+    // System commands (daemon, control, conversation) fetched dynamically
+    // from /workspace/commands/available — surfaced in slash autocomplete
+    // so commands like /new, /history, /plan, /restart, etc. are visible.
+    const systemCommandNames = new Set(loopSystemCommands.map((s) => s.name));
+    const systemCommandSuggestions: CommandSuggestion[] = loopSystemCommands
+      .filter((s) => !reservedCommands.has(s.name))
+      .map((s) => ({
+        command: `/${s.name}`,
+        value: s.name,
+        description: s.description,
+      }));
     const skillSuggestions: CommandSuggestion[] = consoleSkills
-      .filter((skill) => !reservedCommands.has(skill.name))
+      .filter(
+        (skill) =>
+          !reservedCommands.has(skill.name) &&
+          !systemCommandNames.has(skill.name),
+      )
       .sort((a, b) => a.name.localeCompare(b.name))
       .map((skill) => ({
         command: `/${skill.name}`,
@@ -2433,12 +2507,12 @@ export default function ChatPage() {
           : skill.name,
         description: "",
       }));
-    const loopOnlySuggestions: CommandSuggestion[] = useLoopStore
-      .getState()
-      .availableSkills.filter(
+    const loopOnlySuggestions: CommandSuggestion[] = loopAvailableSkills
+      .filter(
         (s) =>
           !reservedCommands.has(s.name) &&
-          !consoleSkills.some((cs) => cs.name === s.name),
+          !consoleSkills.some((cs) => cs.name === s.name) &&
+          !systemCommandNames.has(s.name),
       )
       .map((s) => ({
         command: `/${s.name}`,
@@ -2678,6 +2752,7 @@ export default function ChatPage() {
 
     const baseSuggestions = [
       ...commandSuggestions,
+      ...systemCommandSuggestions,
       ...loopOnlySuggestions,
       ...skillSuggestions,
     ].map((item) => ({
@@ -3046,6 +3121,8 @@ export default function ChatPage() {
     handleQueueSkip,
     runState,
     isOwner,
+    loopAvailableSkills,
+    loopSystemCommands,
   ]);
 
   return (

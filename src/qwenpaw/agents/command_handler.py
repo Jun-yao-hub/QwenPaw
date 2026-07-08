@@ -44,6 +44,17 @@ SYSTEM_COMMAND_DESCRIPTIONS: dict[str, str] = {
     "compact": (
         "Compact the conversation context; optional instruction supported"
     ),
+    "new": "Start a new conversation session",
+    "history": "Show or compact conversation history",
+    "plan": "View or manage the agent's plan/todo list",
+    "dream": "Let the agent reflect and generate ideas freely",
+    "memorize": "Save a memory the agent can recall later",
+    "message": "Send a one-shot message to the agent",
+    "system_prompt": "View or refresh the system prompt",
+    "restart": "Restart the QwenPaw daemon",
+    "status": "Show the QwenPaw daemon status",
+    "version": "Show QwenPaw version info",
+    "logs": "View recent daemon logs",
 }
 # Manual ``/compact`` skips the auto ``trigger_ratio`` gate and runs compaction
 # directly; the field is constrained ``gt=0``, so we use a negligible value

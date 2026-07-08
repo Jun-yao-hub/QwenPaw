@@ -200,6 +200,36 @@
       },
       "goal": {
         "description": "Loop Goal — Agent theo đuổi mục tiêu liên tục, tự đánh giá qua Rubric"
+      },
+      "new": {
+        "description": "Bắt đầu phiên trò chuyện mới"
+      },
+      "dream": {
+        "description": "Để agent tự do phản ánh và tạo ý tưởng"
+      },
+      "memorize": {
+        "description": "Lưu ký ức để agent có thể gọi lại sau"
+      },
+      "message": {
+        "description": "Gửi tin nhắn một lần đến agent"
+      },
+      "system_prompt": {
+        "description": "Xem hoặc làm mới system prompt"
+      },
+      "restart": {
+        "description": "Khởi động lại daemon QwenPaw"
+      },
+      "status": {
+        "description": "Hiển thị trạng thái daemon QwenPaw"
+      },
+      "version": {
+        "description": "Hiển thị thông tin phiên bản QwenPaw"
+      },
+      "logs": {
+        "description": "Xem nhật ký daemon gần đây"
+      },
+      "plan": {
+        "description": "Tạo kế hoạch có cấu trúc để phân tách nhiệm vụ"
       }
     },
     "contextMenu": {

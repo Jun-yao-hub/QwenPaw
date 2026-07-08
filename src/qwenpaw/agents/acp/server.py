@@ -87,8 +87,19 @@ ACP_AGENT_META_KEY = "qwenpaw.agent"
 _ADVERTISED_COMMAND_ORDER = (
     "clear",
     "compact",
+    "new",
+    "history",
+    "plan",
+    "dream",
+    "memorize",
+    "system_prompt",
+    "message",
     "skills",
     "model",
+    "restart",
+    "status",
+    "version",
+    "logs",
 )
 
 # Commands that are intentionally hidden from autocomplete because the TUI
@@ -98,7 +109,6 @@ _ACP_REDUNDANT_COMMANDS = frozenset(
         "approval",
         "approve",
         "deny",
-        "new",
         "stop",
     },
 )
