@@ -306,6 +306,36 @@
       },
       "status": {
         "description": "Hiển thị tài khoản tác nhân, mô hình và không gian làm việc hiện tại"
+      },
+      "new": {
+        "description": "Bắt đầu phiên trò chuyện mới"
+      },
+      "history": {
+        "description": "Hiển thị hoặc nén lịch sử cuộc trò chuyện"
+      },
+      "dream": {
+        "description": "Để agent tự do phản ánh và tạo ý tưởng"
+      },
+      "memorize": {
+        "description": "Lưu ký ức để agent có thể gọi lại sau"
+      },
+      "message": {
+        "description": "Gửi tin nhắn một lần đến agent"
+      },
+      "system_prompt": {
+        "description": "Xem hoặc làm mới system prompt"
+      },
+      "restart": {
+        "description": "Khởi động lại daemon QwenPaw"
+      },
+      "version": {
+        "description": "Hiển thị thông tin phiên bản QwenPaw"
+      },
+      "logs": {
+        "description": "Xem nhật ký daemon gần đây"
+      },
+      "plan": {
+        "description": "Tạo kế hoạch có cấu trúc để phân tách nhiệm vụ"
       }
     },
     "turnUsagePopover": {
