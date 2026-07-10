@@ -60,8 +60,15 @@ export async function fetchAvailableLoopSkills(): Promise<void> {
     }
     // Also store system commands (daemon, control, conversation) so the
     // Chat component can include them in the slash autocomplete menu.
+    // Explicit category allowlist avoids surfacing loop built-in commands
+    // (mission/goal, category "builtin") which have their own chip UI.
+    const SYSTEM_COMMAND_CATEGORIES = new Set([
+      "daemon",
+      "control",
+      "conversation",
+    ]);
     const systemCommands: LoopSkillInfo[] = commands
-      .filter((c) => c.category !== "plugin")
+      .filter((c) => SYSTEM_COMMAND_CATEGORIES.has(c.category))
       .map((c) => ({
         name: c.name,
         description: c.description || "",

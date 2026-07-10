@@ -1130,8 +1130,12 @@ class PawApp(App):
 
 
 def _local_commands() -> list[SlashCommand]:
-    """Slash commands handled by the TUI itself. Model/provider commands are
-    QwenPaw's and are forwarded to the agent, not listed here."""
+    """Slash commands shown in the TUI autocomplete menu.
+
+    Includes TUI-local commands (help, resume, theme, inspect) as well as
+    system commands forwarded to the agent.  The latter are duplicated here
+    so autocomplete is populated immediately, before the ACP
+    ``available_commands_update`` event arrives."""
     commands = [
         SlashCommand("help", "show QwenPaw TUI shortcuts"),
         SlashCommand("resume", "resume a previous session"),
