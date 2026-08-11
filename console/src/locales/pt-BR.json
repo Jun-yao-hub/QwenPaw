@@ -2695,9 +2695,6 @@
       "review": {
         "description": "Revisar com o Codex as alterações não commitadas no workspace"
       },
-      "status": {
-        "description": "Mostrar a conta, o modelo e o workspace atuais do agente"
-      },
       "goal": {
         "description": "Loop Goal — Agente persegue objetivo continuamente, auto-avalia via Rubric"
       },

@@ -2993,9 +2993,6 @@
       "review": {
         "description": "Review uncommitted workspace changes with Codex"
       },
-      "status": {
-        "description": "Show the current agent account, model, and workspace"
-      },
       "plan": {
         "description": "Create a structured plan to decompose the task into subtasks"
       },

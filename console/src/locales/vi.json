@@ -286,9 +286,6 @@
       "deny": {
         "description": "Từ chối yêu cầu công cụ đang chờ"
       },
-      "history": {
-        "description": "Hiển thị lịch sử cuộc trò chuyện"
-      },
       "mission": {
         "description": "Chế độ Mission — Phân tách nhiệm vụ cho sub-agent với ngữ cảnh tách biệt"
       },
@@ -305,7 +302,7 @@
         "description": "Dùng Codex để đánh giá các thay đổi chưa commit trong không gian làm việc"
       },
       "status": {
-        "description": "Hiển thị tài khoản tác nhân, mô hình và không gian làm việc hiện tại"
+        "description": "Hiển thị trạng thái daemon QwenPaw"
       },
       "new": {
         "description": "Bắt đầu phiên trò chuyện mới"

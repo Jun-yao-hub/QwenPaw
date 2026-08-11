@@ -2850,9 +2850,6 @@
       "review": {
         "description": "使用 Codex 审查工作区中尚未提交的变更"
       },
-      "status": {
-        "description": "查看当前智能体账户、模型和工作区"
-      },
       "plan": {
         "description": "创建结构化计划，将任务分解为多个子任务"
       },

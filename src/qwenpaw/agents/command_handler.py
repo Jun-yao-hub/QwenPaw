@@ -30,12 +30,13 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-# User-facing descriptions for conversation commands, mirrored in
-# ``builtin_commands._ADVERTISED_CONVERSATION_COMMANDS`` which serves as
-# the canonical source for ACP ``available_commands_update`` broadcasts.
-# Descriptions here match the console command palette copy
-# (``console/src/locales/en.json`` → ``chat.commands``) where they overlap,
-# so the same wording is shown across the web UI and ACP clients.
+# User-facing descriptions for conversation commands. This dict is the
+# canonical source: ACP broadcasts via ``available_commands_update`` are
+# derived from it by ``builtin_commands._collect_conversation_specs()``,
+# and the console command palette copy
+# (``console/src/locales/en.json`` → ``chat.commands``) matches it where
+# they overlap, so the same wording is shown across the web UI and ACP
+# clients.
 SYSTEM_COMMAND_DESCRIPTIONS: dict[str, str] = {
     "clear": "Clear the conversation context",
     "compact": (

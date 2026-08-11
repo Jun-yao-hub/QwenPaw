@@ -294,9 +294,6 @@
       "review": {
         "description": "Tinjau perubahan ruang kerja yang belum di-commit dengan Codex"
       },
-      "status": {
-        "description": "Tampilkan akun agen, model, dan ruang kerja saat ini"
-      },
       "goal": {
         "description": "Loop Goal — Agen mengejar tujuan secara terus-menerus, evaluasi otomatis via Rubric"
       },

@@ -2451,9 +2451,6 @@
       "review": {
         "description": "Codex で未コミットのワークスペース変更をレビュー"
       },
-      "status": {
-        "description": "現在のエージェントアカウント、モデル、ワークスペースを表示"
-      },
       "goal": {
         "description": "Goalループ — エージェントが目標に向かって継続実行し、Rubric評価で完了を自動判定"
       },
